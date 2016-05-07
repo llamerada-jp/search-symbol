@@ -27,7 +27,7 @@ commands        = []
 
 def check_command(c):
     ret = subprocess.call(
-        'which {}'.format(c),
+        'which {} > /dev/null'.format(c),
         shell = True)
     if ret == 0:
         return True
@@ -52,7 +52,7 @@ if len(commands) == 0:
     exit(1)
 
 args.extensions = map(lambda e:'.' + e, args.extensions)
-            
+
 for root, dirs, files in os.walk(args.path):
     for f in files:
         if f.endswith(tuple(args.extensions)):
