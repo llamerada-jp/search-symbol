@@ -38,7 +38,7 @@ if check_command('nm'):
     commands.append('nm {}')
 
 if check_command('readelf'):
-    commands.append('readelf -s {}')
+    commands.append('readelf -sW {}')
 
 if args.demangle:
     if check_command('c++filt'):
